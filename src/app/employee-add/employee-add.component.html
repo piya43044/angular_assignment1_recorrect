@@ -130,6 +130,11 @@
             </tr>
             <tr>
                 <td>
+                    <!-- Form Validation Message -->
+                    <div *ngIf="addEmployeeForm.invalid && (addEmployeeForm.touched || addEmployeeForm.dirty)">
+                        <small>Please fill all details correctly</small>
+                    </div>
+
                     <!-- Submit Button -->
                     <div *ngIf="!isEditActive; then submit else edit">
                     </div>
@@ -137,7 +142,7 @@
                         <input type="submit" value="Submit" [disabled]="!addEmployeeForm.valid">
                     </ng-template>
                     <ng-template #edit>
-                        <button id="btn-edit" type="button" (click)="onEdit()">Update</button>
+                        <button id="btn-edit" type="button" (click)="onEdit()" [disabled]="!addEmployeeForm.valid">Update</button>
                     </ng-template>
                 </td>
             </tr>
