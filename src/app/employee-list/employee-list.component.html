@@ -1,0 +1,43 @@
+<div class="container">
+    <div id="addEmployee">
+        <button routerLink="/addEmployee">Add Employee</button>
+    </div>
+
+    <div>
+        <table id="employeeTable">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Gender</th>
+                <th>Skills</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let emp of employee;">
+                <td>{{emp.empId}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.contact}}</td>
+                <td>{{emp.gender}}</td>
+                <td>
+                    <div *ngFor="let skillsAndExp of emp.skillsAndExperience">
+                        {{skillsAndExp.skills}}, Exp:{{skillsAndExp.experience}}
+                    </div>
+                </td>
+                <td>
+                    <!-- Edit button -->
+                    <button (click)="edit(emp.id)"><i class='fas fa-pen'></i></button>
+                    &nbsp;
+                    <!-- Delete button -->
+                    <button (click)="delete(emp.id, emp.name)"><i class='fas fa-trash'></i></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Success Message Display on screen -->
+    <div *ngIf="showSuccess" id="message">
+        <div class="modal-content">{{ successMessage }}</div>
+    </div>
+</div>

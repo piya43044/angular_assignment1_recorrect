@@ -1,0 +1,60 @@
+$green: #04AA6D;
+$white: white;
+$offGrey: #ddd;
+$offGrey1: #f2f2f2;
+
+/*Add Employee*/
+#addEmployee {
+    display :flex;
+    justify-content: flex-end;
+    margin: 20px;
+
+    /*Add Employee Button*/
+    button {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: $green;
+        color: $white;
+        border: none;
+    }
+}
+
+/*Employee List dispace using table*/
+#employeeTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+    /*Table data Styling*/
+    td, th {
+      border: none;
+      padding: 12px;
+      text-align: left;
+    }
+
+    /*Alternative table row styling*/
+    tr:nth-child(even){
+      background-color: $offGrey1;
+      border-top: 1px solid $offGrey;
+      border-bottom: 1px solid $offGrey;
+    }
+
+    /*Edit and Delete Button*/
+    button {
+      border: none;
+    }
+}
+
+/*Success Delete Meassage display on screen*/
+#message {
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  padding: 20px;
+  border: 1px double $white;
+  text-align: center;
+  background-color: $green;
+  color: $white;
+  font-size: larger;
+}

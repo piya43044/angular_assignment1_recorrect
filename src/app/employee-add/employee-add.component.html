@@ -1,0 +1,148 @@
+<div>
+    <!-- Heading -->
+    <div *ngIf="!isEditActive; then addEmployee else editEmployee">
+    </div>
+    <ng-template #addEmployee>
+        <h1>Add Employee</h1>
+    </ng-template>
+    <ng-template #editEmployee>
+        <h1>Edit Employee</h1>
+    </ng-template>
+
+
+    <!-- Add Employee Form -->
+    <form [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <td>
+                    <!-- Employee Id -->
+                    <div id="id">
+                        <label for="empId">Employee Id:</label><br>
+                        <input type="text" id="empId" placeholder="Enter Id" formControlName="empId">
+
+                        <div *ngIf="empId?.invalid && (empId?.dirty || empId?.touched)">
+                            <small *ngIf="empId?.hasError('required')">
+                                Employee Id Required
+                            </small>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- Employee Name -->
+                    <div>
+                        <label for="Name">Name:</label><br>
+                        <input type="text" id="Name" placeholder="Enter name" formControlName="name">
+
+                        <!-- Validators with name getter -->
+                        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                            <small *ngIf="name?.hasError('required')">
+                                Name Required
+                            </small>
+                            <small *ngIf="name?.hasError('minlength')">
+                                Name must have at least 3 character long.
+                            </small>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <!-- Employee Contact Number -->
+                    <div>
+                        <label for="contact">Contact Number:</label><br>
+                        <input type="text" id="contact" placeholder="Enter contact number" formControlName="contact">
+
+                        <div *ngIf="contact?.invalid && (contact?.dirty || contact?.touched)">
+                            <small *ngIf="contact?.hasError('required')">
+                                Contact Required
+                            </small>
+                            <small *ngIf="contact?.hasError('minlength')">
+                                Contact must have 10 character long.
+                            </small>
+                            <small *ngIf="contact?.hasError('maxlength')">
+                                Contact must have 10 character long.
+                            </small>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- Employee Email -->
+                    <div>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" placeholder="Enter email" formControlName="email">
+
+                        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                            <small *ngIf="email?.hasError('required')">
+                                Email Required
+                            </small>
+                            <small *ngIf="email?.hasError('email')">
+                                Please fill correct Email
+                            </small>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>
+                        <!-- Employee Skills -->
+                        <div id="skillsExperience">
+                            <label for="skill">Skill:</label>
+                            <button type="button" (click)="addSkillsAndExperience()">Add skill +</button>
+                        </div>
+                        <ng-container formArrayName="skillsAndExperience" *ngFor="let skill of skillsAndExperience.controls; let i=index">
+                            
+                            <!-- Skills -->
+                            <div class="skills" [formGroupName]="i">
+                                <div class="skills-input">
+                                    <input type="text" placeholder="Enter skill name" formControlName="skills">
+                                </div>
+                                <!-- Experience -->
+                                <div class="skills-input">
+                                    <select formControlName="experience">
+                                        <option value="" disabled selected hidden>Select Experience</option>
+                                        <option *ngFor="let year of experienceYears" [value]="year">{{year}}</option>
+                                    </select>
+                                </div>
+                                <!-- Delete Skill and experience -->
+                                <div *ngIf="skillsAndExperience.length > 1">
+                                    <button type="button" (click)="deleteSkillsAndExperience(i)"><i class='fas fa-trash'></i></button>
+                                </div>
+                            </div>
+                            
+                            
+                        </ng-container>
+                    </div>
+                </td>
+
+                <td>
+                    <!-- Employee Gender -->
+                    <div>
+                        <label for="gender">Gender:</label><br>
+                        <input type="radio" id="male" name="gender" value="male" formControlName="gender">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female" formControlName="gender">
+                        <label for="female">Female</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- Submit Button -->
+                    <div *ngIf="!isEditActive; then submit else edit">
+                    </div>
+                    <ng-template #submit>
+                        <input type="submit" value="Submit" [disabled]="!addEmployeeForm.valid">
+                    </ng-template>
+                    <ng-template #edit>
+                        <button id="btn-edit" type="button" (click)="onEdit()">Update</button>
+                    </ng-template>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+</div>

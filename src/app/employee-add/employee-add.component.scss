@@ -1,0 +1,77 @@
+$white: white;
+$green: #04AA6D;
+$red: #e21010;
+$blue: #267af7;
+$offWhite: #ccc;
+
+@mixin input(){
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+}
+
+h1 {
+    margin-left: 30px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 30px;
+    td {
+        width: 30%;
+    }
+
+    small {
+        color: $red;
+    }
+    input[type=text],input[type=email] ,select {
+        @include input();
+        width: 100%;
+        display: inline-block;
+        border: 1px solid $offWhite;
+        box-sizing: border-box;
+    }
+    
+    input[type=submit], #btn-edit {
+        @include input();
+        width: 20%;
+        background-color: $blue;
+        color: $white;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Skills and Experience section */
+    #skillsExperience {
+        display :flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        label {
+            margin-top: 10px;
+        }
+        button {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: $green;
+            color: $white;
+            border: none;
+        }
+    }    
+
+    .skills {
+        display: flex;
+        justify-content: space-between;
+        button {
+            margin-top: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: $red;
+            color: $white;
+            border: none;
+        }
+
+        .skills-input {
+            width: 45%;
+        }
+    }
+}

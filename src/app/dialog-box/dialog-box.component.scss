@@ -1,0 +1,18 @@
+.dialog-container {
+
+    /* Message Display*/
+    .message {
+        height: 70px;
+        font-size: large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    /* Yes and No Button*/
+    button {
+        height: 30px;
+        width: 200px;
+    }
+}
