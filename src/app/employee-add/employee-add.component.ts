@@ -30,7 +30,7 @@ export class EmployeeAddComponent implements OnInit{
       contact : new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
       email : new FormControl('', [Validators.required, Validators.email]),
       skillsAndExperience : new FormArray([this.skillsAndExperienceForm()]),
-      gender : new FormControl(''),
+      gender : new FormControl('', Validators.required),
     })
 
     // get activatedRoute parameter using observable
@@ -66,6 +66,9 @@ export class EmployeeAddComponent implements OnInit{
   }
   get email(){
     return this.addEmployeeForm.get('email');
+  }
+  get gender(){
+    return this.addEmployeeForm.get('gender');
   }
 
   // getter of dyanamic create skill and experience
@@ -109,7 +112,14 @@ export class EmployeeAddComponent implements OnInit{
   fillFormToEdit(employee : Employee){
 
     const skillsExp = employee.skillsAndExperience;
+    // console.log(skillsExp);
     
+    // Add all Skills and experience in the edit form
+    for(let i=1;i<skillsExp.length;i++){
+      this.addSkillsAndExperience();
+    }
+    
+    // set the value of all the fields of edit form
     this.addEmployeeForm.patchValue({
       empId : employee.empId,
       name : employee.name,

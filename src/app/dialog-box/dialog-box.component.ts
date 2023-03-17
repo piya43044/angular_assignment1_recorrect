@@ -9,8 +9,7 @@ import { DialogService } from '../services/dialog.service';
 })
 export class DialogBoxComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data : any,
-  private dialogService: DialogService){};
+  constructor(@Inject(MAT_DIALOG_DATA) public data : any){};
   
   ngOnInit(){
     

@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "empId": "1",
+      "empId": 1,
       "name": "John",
       "contact": "8997238443",
       "email": "john@gmail.com",
@@ -15,7 +15,7 @@
       "id": 1
     },
     {
-      "empId": "2",
+      "empId": 2,
       "name": "Mary",
       "contact": "8678623478",
       "email": "mary@gmail.com",
@@ -25,11 +25,7 @@
           "experience": "4years"
         },
         {
-          "skills": "CSS",
-          "experience": "4years"
-        },
-        {
-          "skills": "Management",
+          "skills": "JavaScript",
           "experience": "4years"
         }
       ],
@@ -37,7 +33,7 @@
       "id": 2
     },
     {
-      "empId": "3",
+      "empId": 3,
       "name": "Victor",
       "contact": "2345345655",
       "email": "victor@gmail.com",
@@ -51,7 +47,7 @@
       "id": 3
     },
     {
-      "empId": "4",
+      "empId": 4,
       "name": "Mickey",
       "contact": "6774556568",
       "email": "mickey@gmail.com",
@@ -63,20 +59,6 @@
       ],
       "gender": "male",
       "id": 4
-    },
-    {
-      "empId": "5",
-      "name": "Minie",
-      "contact": "8665656554",
-      "email": "minie@gmail.com",
-      "skillsAndExperience": [
-        {
-          "skills": "HTML",
-          "experience": "3years"
-        }
-      ],
-      "gender": "female",
-      "id": 5
     }
   ]
 }

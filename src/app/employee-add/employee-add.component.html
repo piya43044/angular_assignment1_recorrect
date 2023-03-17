@@ -18,7 +18,7 @@
                     <!-- Employee Id -->
                     <div id="id">
                         <label for="empId">Employee Id:</label><br>
-                        <input type="text" id="empId" placeholder="Enter Id" formControlName="empId">
+                        <input type="number" id="empId" placeholder="Enter Id" formControlName="empId">
 
                         <div *ngIf="empId?.invalid && (empId?.dirty || empId?.touched)">
                             <small *ngIf="empId?.hasError('required')">
@@ -92,6 +92,7 @@
                             <label for="skill">Skill:</label>
                             <button type="button" (click)="addSkillsAndExperience()">Add skill +</button>
                         </div>
+                        <!-- skiilsAndExperience is a getter  -->
                         <ng-container formArrayName="skillsAndExperience" *ngFor="let skill of skillsAndExperience.controls; let i=index">
                             
                             <!-- Skills -->
@@ -125,6 +126,12 @@
                         <label for="male">Male</label>
                         <input type="radio" id="female" name="gender" value="female" formControlName="gender">
                         <label for="female">Female</label>
+                    </div>
+                    <!-- Gender Validation for error Message -->
+                    <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)">
+                        <small *ngIf="gender?.hasError('required')">
+                            Gender sd Required
+                        </small>
                     </div>
                 </td>
             </tr>

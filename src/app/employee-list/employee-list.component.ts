@@ -23,6 +23,7 @@ export class EmployeeListComponent implements OnInit {
     this.getEmployee();
   }
 
+  // Get the data from the json server
   getEmployee(){
     this.employeesDetailService.getRegisterEmployees().subscribe( data =>{
       this.employee = data;
@@ -30,27 +31,30 @@ export class EmployeeListComponent implements OnInit {
     })
   }
 
+  // Navigate the router for editing the data in json server
   edit(index : number){
     this.router.navigate(['employee', index])
   }
 
+  // Delete the data from the json server
   delete(index : number, empName: string){
     
     // Confirm Dialog box display for delete employee
-    
     this.dialogService.openConfirmDialog(`Are you sure you want to delete ${empName}?`)
     .afterClosed().subscribe(res=>{
-      // console.log(res);
-      if(res){
-        
+      
+      // Check the response of dialog box, if it give yes then delete the data and show the message
+      if(res){  
         this.employeesDetailService.deleteEmployee(index).subscribe((data) =>{
           //   console.log(data);
           this.showSuccess = true;
           this.successMessage = `The Employee ${empName}is deleted successfully.`;
+          this.getEmployee();
+
+          // setTimeout() is used for holding the message for 2 seconds
           setTimeout(() => {
             this.showSuccess = false;
             this.successMessage = '';
-            this.ngOnInit();
           }, 2000);
           })
       }
