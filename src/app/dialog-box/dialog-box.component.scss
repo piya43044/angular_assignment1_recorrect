@@ -4,10 +4,9 @@
     .message {
         height: 70px;
         font-size: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
+        text-align: center;
+        position: relative;
+        top: 30px;
     }
 
     /* Yes and No Button*/

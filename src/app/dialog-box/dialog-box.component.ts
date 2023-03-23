@@ -8,11 +8,10 @@ import { DialogService } from '../services/dialog.service';
   styleUrls: ['./dialog-box.component.scss']
 })
 export class DialogBoxComponent implements OnInit {
-
+  
   constructor(@Inject(MAT_DIALOG_DATA) public data : any){};
   
   ngOnInit(){
     
   }
-
 }

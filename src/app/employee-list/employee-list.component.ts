@@ -56,7 +56,7 @@ export class EmployeeListComponent implements OnInit {
             this.showSuccess = false;
             this.successMessage = '';
           }, 2000);
-          })
+        })
       }
     });
   }
