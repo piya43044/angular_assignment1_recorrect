@@ -33,20 +33,6 @@
       "id": 2
     },
     {
-      "empId": 3,
-      "name": "Victor",
-      "contact": "2345345655",
-      "email": "victor@gmail.com",
-      "skillsAndExperience": [
-        {
-          "skills": "HTML",
-          "experience": "4years"
-        }
-      ],
-      "gender": "male",
-      "id": 3
-    },
-    {
       "empId": 4,
       "name": "Mickey",
       "contact": "6774556568",

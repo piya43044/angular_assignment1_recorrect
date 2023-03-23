@@ -113,11 +113,12 @@ export class EmployeeAddComponent implements OnInit{
 
     const skillsExp = employee.skillsAndExperience;
     // console.log(skillsExp);
+    this.skillsAndExperience.clear();
     
     // Add all Skills and experience in the edit form
-    for(let i=1;i<skillsExp.length;i++){
+    skillsExp.forEach(element => {
       this.addSkillsAndExperience();
-    }
+    });
     
     // set the value of all the fields of edit form
     this.addEmployeeForm.patchValue({
